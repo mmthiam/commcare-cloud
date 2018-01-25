@@ -7,6 +7,16 @@
     body: '"{{ couchdb2.password }}"'
     body_format: raw
 
+- name: remove old couchdb users
+  uri:
+    url: "http{% if couchdb_secure %}s{% endif %}://{{ inventory_hostname|ipaddr }}:{{ couchdb_port }}/_node/couchdb@{{ inventory_hostname|ipaddr }}/_config/admins/{{ item }}"
+    method: DELETE
+    status_code: 200
+    user: "{{ couchdb2.username }}"
+    password: "{{ couchdb2.password }}"
+    body_format: raw
+  with_items: "{{ couchdb2.old_users|default([]) }}"
+
 - name: Add nodes
   uri:
     url: "http{% if couchdb_secure %}s{% endif %}://{{ inventory_hostname|ipaddr }}:{{ couchdb_node_port }}/_nodes/couchdb@{{ item|ipaddr }}"

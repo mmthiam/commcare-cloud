@@ -240,6 +240,8 @@ couchdb_cluster_settings:
 couchdb2:
   username: "{{ localsettings_private.COUCH_USERNAME }}"
   password: "{{ localsettings_private.COUCH_PASSWORD }}"
+  old_users:
+    - 'offizandaytogeredernythe'
 
 couch_dbs:
   default:
