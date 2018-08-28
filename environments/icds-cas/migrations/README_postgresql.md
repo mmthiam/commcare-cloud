@@ -6,7 +6,7 @@
     $ cchq icds-cas service postgresql stop
     ```
 
-2. Remove couch data
+2. Remove postgres data
 
     ```
     $ cchq icds-cas run-shell-command postgresql "rm -rf /opt/data/postgresql/9.6/main/*" -b
