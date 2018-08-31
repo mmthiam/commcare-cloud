@@ -14,13 +14,13 @@ REPORTING_DATABASES:
 LOAD_BALANCED_APPS:
   auth:
     - [default, 1]
-    - [pgmainstandby0, 1]
+    # - [pgmainstandby0, 1]
   accounting:
     - [default, 1]
-    - [pgmainstandby0, 1]
+    # - [pgmainstandby0, 1]
   locations:
     - [default, 1]
-    - [pgmainstandby0, 1]
+    # - [pgmainstandby0, 1]
 
 override:
   pgbouncer_pool_mode: transaction
@@ -86,7 +86,7 @@ dbs:
     #   name: warehouse
     #   host: pgwarehouse0
     #   django_migrate: True
-  standby:
+  standby: []
     # - django_alias: icds-ucr-standby0
     #   name: commcarehq_icds_aggregatedata
     #   host: pgucrstandby0
@@ -111,9 +111,9 @@ dbs:
     #   create: False
     #   django_migrate: False
     #   hq_acceptable_standby_delay: 1800
-    - django_alias: pgmainstandby0
-      name: commcarehq
-      host: pgmainstandby0
-      create: False
-      django_migrate: False
-      hq_acceptable_standby_delay: 30
+    # - django_alias: pgmainstandby0
+    #   name: commcarehq
+    #   host: pgmainstandby0
+    #   create: False
+    #   django_migrate: False
+    #   hq_acceptable_standby_delay: 30
