@@ -8,7 +8,6 @@ REPORTING_DATABASES:
       - [icds-ucr-standby0, 5]
       - [icds-ucr-standby1, 5]
       - [icds-ucr-standby2, 5]
-      - [icds-ucr-standby3, 5]
   icds-test-ucr: icds-ucr
 
 LOAD_BALANCED_APPS:
@@ -82,10 +81,6 @@ dbs:
       django_migrate: True  # the dashboard models are stored here
     - name: airflow
       django_migrate: False
-    - django_alias: warehouse
-      name: warehouse
-      host: pgwarehouse0
-      django_migrate: True
   standby:
     - django_alias: icds-ucr-standby0
       name: commcarehq_icds_aggregatedata
@@ -102,12 +97,6 @@ dbs:
     - django_alias: icds-ucr-standby2
       name: commcarehq_icds_aggregatedata
       host: pgucrstandby2
-      create: False
-      django_migrate: False
-      hq_acceptable_standby_delay: 1800
-    - django_alias: icds-ucr-standby3
-      name: commcarehq_icds_aggregatedata
-      host: pgucrstandby3
       create: False
       django_migrate: False
       hq_acceptable_standby_delay: 1800
