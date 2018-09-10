@@ -244,7 +244,7 @@ pillows:
     kafka-ucr-static-cases:
       start_process: 0
       num_processes: 6
-      total_processes: 60
+      total_processes: 30
     CaseToElasticsearchPillow:
       start_process: 0
       num_processes: 6
@@ -253,7 +253,7 @@ pillows:
     kafka-ucr-static-cases:
       start_process: 6
       num_processes: 6
-      total_processes: 60
+      total_processes: 30
     CaseToElasticsearchPillow:
       start_process: 6
       num_processes: 6
@@ -262,7 +262,7 @@ pillows:
     kafka-ucr-static-cases:
       start_process: 12
       num_processes: 6
-      total_processes: 60
+      total_processes: 30
     CaseToElasticsearchPillow:
       start_process: 12
       num_processes: 6
@@ -271,7 +271,7 @@ pillows:
     kafka-ucr-static-cases:
       start_process: 18
       num_processes: 6
-      total_processes: 60
+      total_processes: 30
     CaseToElasticsearchPillow:
       start_process: 18
       num_processes: 6
@@ -280,33 +280,33 @@ pillows:
     kafka-ucr-static-cases:
       start_process: 24
       num_processes: 6
-      total_processes: 60
+      total_processes: 30
     CaseToElasticsearchPillow:
       start_process: 24
       num_processes: 6
       total_processes: 30
-  'pillow10':
-    kafka-ucr-static-cases:
-      start_process: 30
-      num_processes: 6
-      total_processes: 60
-  'pillow11':
-    kafka-ucr-static-cases:
-      start_process: 36
-      num_processes: 6
-      total_processes: 60
-  'pillow12':
-    kafka-ucr-static-cases:
-      start_process: 42
-      num_processes: 6
-      total_processes: 60
-  'pillow13':
-    kafka-ucr-static-cases:
-      start_process: 48
-      num_processes: 6
-      total_processes: 60
-  'pillow14':
-    kafka-ucr-static-cases:
-      start_process: 54
-      num_processes: 6
-      total_processes: 60
+  # 'pillow10':
+  #   kafka-ucr-static-cases:
+  #     start_process: 30
+  #     num_processes: 6
+  #     total_processes: 60
+  # 'pillow11':
+  #   kafka-ucr-static-cases:
+  #     start_process: 36
+  #     num_processes: 6
+  #     total_processes: 60
+  # 'pillow12':
+  #   kafka-ucr-static-cases:
+  #     start_process: 42
+  #     num_processes: 6
+  #     total_processes: 60
+  # 'pillow13':
+  #   kafka-ucr-static-cases:
+  #     start_process: 48
+  #     num_processes: 6
+  #     total_processes: 60
+  # 'pillow14':
+  #   kafka-ucr-static-cases:
+  #     start_process: 54
+  #     num_processes: 6
+  #     total_processes: 60
