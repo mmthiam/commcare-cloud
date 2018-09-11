@@ -40,12 +40,14 @@ variable "proxy_servers" {
 
 
 locals {
-  subnet_options  = ["${module.network.subnet-a-app-private}",
-                     "${module.network.subnet-b-app-private}",
-                     "${module.network.subnet-c-app-private}",
-                     "${module.network.subnet-a-public}",
-                     "${module.network.subnet-b-public}",
-                     "${module.network.subnet-c-public}"]
+  subnet_options = {
+    private-a = "${module.network.subnet-a-app-private}"
+    private-b = "${module.network.subnet-b-app-private}"
+    private-c = "${module.network.subnet-c-app-private}"
+    public-a = "${module.network.subnet-a-public}"
+    public-b = "${module.network.subnet-b-public}"
+    public-c = "${module.network.subnet-c-public}"
+  }
 }
 
 module "servers" {
@@ -99,37 +101,4 @@ module "Redis" {
 #  vpc_id           = "${module.network.vpc-id}"
 #  # dns_zone_id      = "${var.dns_zone_id}"
 #  # dns_domain       = "${var.dns_domain}"
-#}
-
-# If an RDS instance or cluster is needed, uncomment this.
-#module "database" {
-#  source                         = "../rds"
-#  vpc_id                         = "${module.network.vpc-id}"
-#  environment                    = "${var.environment}"
-#  dns_zone_id                    = "${var.dns_zone_id}"
-#  dns_domain                     = "${var.dns_domain}"
-#  azs                            = "${var.azs}"
-#  rds_storage                    = "${var.rds_storage}"
-#  rds_engine                     = "${var.rds_engine}"
-#  rds_engine_version             = "${var.rds_engine_version}"
-#  rds_instance_type              = "${var.rds_instance_type}"
-#  rds_database_name              = "${var.rds_database_name}"
-#  rds_username                   = "${var.rds_username}"
-#  rds_storage_type               = "${var.rds_storage_type}"
-#  rds_backup_window              = "${var.rds_backup_window}"
-#  rds_backup_retention           = "${var.rds_backup_retention}"
-#  rds_maintenance_window         = "${var.rds_maintenance_window}"
-#  rds_auto_minor_version_upgrade = "${var.rds_auto_minor_version_upgrade}"
-#  rds_multi_az                   = "${var.rds_multi_az}"
-#  rds_storage_encrypted          = "${var.rds_storage_encrypted}"
-#  rds_port                       = "${var.rds_port}"
-#  environment                    = "${var.environment}"
-#  rds_password                   = "${var.rds_password}"
-#  rds_prevent_destroy            = "${var.rds_prevent_destroy}"
-#  rds_instance_count             = "${var.rds_instance_count}"
-#  rds_sg_ip_ingress              = ["${module.generic-sg.security_group}","${module.network.g2-access-sg}","${module.openvpn.openvpn-access-sg}"]
-#  rds_subnet_a                   = "${module.network.subnet-a-db-private}"
-#  rds_subnet_b                   = "${module.network.subnet-b-db-private}"
-#  rds_subnet_c                   = "${module.network.subnet-c-db-private}"
-#  rds_instance_count             = "${var.rds_instance_count}"
 #}
